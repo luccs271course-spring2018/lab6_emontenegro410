@@ -2,6 +2,7 @@ package edu.luc.cs271.arrayqueue;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class FixedArrayQueue<E> implements SimpleQueue<E> {
 
@@ -45,7 +46,7 @@ public class FixedArrayQueue<E> implements SimpleQueue<E> {
   public E peek() {
     // DONE TODO
     if (isEmpty()) {
-      return null;
+      throw new NoSuchElementException();
     } else {
       return data[front];
     }
@@ -53,14 +54,13 @@ public class FixedArrayQueue<E> implements SimpleQueue<E> {
 
   @Override
   public E poll() {
-    // DONISH TODO
+    // DONE TODO
     if (isEmpty()) {
-      return null;
+      throw new NoSuchElementException();
     } else {
       E result = data[front];
       front = (front + 1) % capacity;
-      size--; // ... not sure how to eliminate the front data
-
+      size--;
       return result;
     }
   }
@@ -86,7 +86,7 @@ public class FixedArrayQueue<E> implements SimpleQueue<E> {
     /* return Arrays.asList();
       }
     }*/
-    dataList = new ArrayList<>(capacity);
+    List<E> dataList = new ArrayList<>();
     while (!isEmpty()) {
       dataList.add(data[front]);
       front = (front + 1) % capacity;
