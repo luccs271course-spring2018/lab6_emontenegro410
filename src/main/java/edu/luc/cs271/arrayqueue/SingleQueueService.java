@@ -53,7 +53,6 @@ public class SingleQueueService {
       }
       if (result) {
         System.out.println(name + " has joined the queue");
-        System.out.print("enter next customer: "); //In class Laufer told us to re-prompt line 47
       } else {
         System.out.println("queue full, " + name + " unable to join");
       }
