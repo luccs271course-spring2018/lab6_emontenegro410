@@ -49,10 +49,11 @@ public class SingleQueueService {
       final String name = input.nextLine();
       boolean result;
       synchronized (lock) {
-        result = queue.offer(name); // TODO try to add this name to the queue
+        result = queue.offer(name); // DONE TODO try to add this name to the queue
       }
       if (result) {
         System.out.println(name + " has joined the queue");
+        System.out.print("enter next customer: "); //In class Laufer told us to re-prompt line 47
       } else {
         System.out.println("queue full, " + name + " unable to join");
       }

@@ -46,7 +46,7 @@ public class FixedArrayQueue<E> implements SimpleQueue<E> {
   public E peek() {
     // DONE TODO
     if (isEmpty()) {
-      throw new NoSuchElementException();
+      return null;
     } else {
       return data[front];
     }
@@ -56,7 +56,7 @@ public class FixedArrayQueue<E> implements SimpleQueue<E> {
   public E poll() {
     // DONE TODO
     if (isEmpty()) {
-      throw new NoSuchElementException();
+      return null;
     } else {
       E result = data[front];
       front = (front + 1) % capacity;
